@@ -107,6 +107,11 @@ if st.sidebar.button("Generate"):
                 st.error(result['dis_symp'], icon="🚨")
             with case:
                 st.error(result['dis_symp'], icon="🚨")
+        elif json.loads(result['dis_symp']).get("Please provide a valid disorder.") == []:
+            with symp:
+                st.error("Please provide a valid disorder.", icon="🚨")
+            with case:
+                st.error("Please provide a valid disorder.", icon="🚨")
         else:
             with symp:
                 dis_symp_dict = json.loads(result['dis_symp'])
